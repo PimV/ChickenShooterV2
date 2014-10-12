@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ChickenShooterV2
 {
@@ -17,8 +18,36 @@ namespace ChickenShooterV2
             this.GameState = gameState;
         }
 
+        public void cleanup()
+        {
+            this.clearListeners();
+            this.GameWindow.KeyDown -= cheats;
+        }
+
+        public void init()
+        {
+            this.addListeners();
+            this.GameWindow.KeyDown += new KeyEventHandler(cheats);
+        }
+
         public abstract void clearListeners();
         public abstract void addListeners();
+
+        public void cheats(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.D1:
+                    this.GameState.GSM.changeGameState(GameStateFactory.createGameState(GameStateType.level1));
+                    break;
+                case Key.D2:
+                    this.GameState.GSM.changeGameState(GameStateFactory.createGameState(GameStateType.level2));
+                    break;
+                case Key.D3:
+                    this.GameState.GSM.changeGameState(GameStateFactory.createGameState(GameStateType.finished));
+                    break;
+            }
+        }
 
     }
 }

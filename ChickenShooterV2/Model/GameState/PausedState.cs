@@ -22,22 +22,22 @@ namespace ChickenShooterV2
             this.MainContainer = new MainContainer();
 
             this.PauseController = new PauseController(this.GSM.GameWindow, this);
-            this.PauseController.addListeners();
+            this.PauseController.init();
         }
 
         public void cleanup()
         {
-
+            this.PauseController.cleanup();
         }
 
         public void pause()
         {
-            this.PauseController.clearListeners();
+            this.PauseController.cleanup();
         }
 
         public void resume()
         {
-            this.PauseController.addListeners();
+            this.PauseController.init();
         }
 
         public void handleInput()

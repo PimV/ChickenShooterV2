@@ -37,11 +37,11 @@ namespace ChickenShooterV2
             this.MainContainer.addEntity(EntityFactory.createEntity(EntityType.Balloon, 160, 106));
 
             this.GameController = new GameController(this.GSM.GameWindow, this);
-            this.GameController.addListeners();
+            this.GameController.init();
         }
         public void cleanup()
         {
-            this.GameController.clearListeners();
+            this.GameController.cleanup();
         }
 
         public void handleInput()

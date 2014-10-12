@@ -22,12 +22,12 @@ namespace ChickenShooterV2
             this.MainContainer = new MainContainer();
 
             this.GameOverController = new GameOverController(this.GSM.GameWindow, this);
-            this.GameOverController.addListeners();
+            this.GameOverController.init();
         }
 
         public void cleanup()
         {
-            this.GameOverController.clearListeners();
+            this.GameOverController.cleanup();
         }
 
         public void handleInput()
@@ -60,12 +60,12 @@ namespace ChickenShooterV2
 
         public void pause()
         {
-            this.GameOverController.clearListeners();
+            this.GameOverController.cleanup();
         }
 
         public void resume()
         {
-            this.GameOverController.addListeners();
+            this.GameOverController.init();
         }
     }
 }
