@@ -8,10 +8,9 @@ namespace ChickenShooterV2
 {
     public class Chicken : Entity, IShootable
     {
-
-
         private Boolean isAlive = true;
         public Boolean IsAlive { get { return isAlive; } set { isAlive = value; } }
+        public int Health { get; set; }
 
         #region Constructors
         public Chicken()
@@ -28,6 +27,7 @@ namespace ChickenShooterV2
             this.stdMoveSpeed = moveSpeed;
             this.slowDownActive = false;
             this.determineDirection();
+            this.Health = 2;
         }
 
         public Chicken(double x, double y)
@@ -44,6 +44,7 @@ namespace ChickenShooterV2
             this.stdMoveSpeed = moveSpeed;
             this.slowDownActive = false;
             this.determineDirection();
+            this.Health = 2;
         }
 
         public Chicken(double x, double y, double dx, double dy)
@@ -63,6 +64,7 @@ namespace ChickenShooterV2
             this.IsMovable = true;
             this.IsShootable = true;
             this.IsVisible = true;
+            this.Health = 2;
         }
         #endregion
 
@@ -70,7 +72,6 @@ namespace ChickenShooterV2
         {
             if (isAlive)
             {
-
                 this.deltaTime = dt;
                 getNextPosition();
                 if (slowDownActive)
@@ -198,8 +199,12 @@ namespace ChickenShooterV2
         {
             if ((x >= X && x < (Width + X)) && (y > Y && y < (Height + Y)))
             {
-                isAlive = false;
-                return true;
+                Health--;
+                if (Health == 0)
+                {
+                    isAlive = false;
+                    return true;
+                }
             }
             return false;
         }

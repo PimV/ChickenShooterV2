@@ -14,6 +14,7 @@ namespace ChickenShooterV2
         private Label statusLabel;
 
         private BitmapImage chickenImage = new BitmapImage(new Uri("..\\Images\\chicken.png", UriKind.RelativeOrAbsolute));
+        private BitmapImage chickenImage = new BitmapImage(new Uri("..\\Images\\chicken_enraged.png", UriKind.RelativeOrAbsolute));
         private BitmapImage bulletImage = new BitmapImage(new Uri("..\\Images\\gunshot-clipart-bullet-hole-hi.png", UriKind.RelativeOrAbsolute));
         private BitmapImage hitsplatImage = new BitmapImage(new Uri("..\\Images\\hitsplat.png", UriKind.RelativeOrAbsolute));
         private BitmapImage balloonImage = new BitmapImage(new Uri("..\\Images\\balloon.png", UriKind.RelativeOrAbsolute));
