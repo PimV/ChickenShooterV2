@@ -11,6 +11,7 @@ namespace ChickenShooterV2
         ActionContainer ActionContainer { get; set; }
         MainContainer MainContainer { get; set; }
         GameStateManager GSM { get; set; }
+        GameStateType Type { get; set; }
 
         void init(GameStateManager gsm);
         void cleanup();

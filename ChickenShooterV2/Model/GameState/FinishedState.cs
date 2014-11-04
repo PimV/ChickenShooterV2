@@ -12,6 +12,12 @@ namespace ChickenShooterV2
         public MainContainer MainContainer { get; set; }
         public ActionContainer ActionContainer { get; set; }
         public GameOverController GameOverController { get; set; }
+        public GameStateType Type { get; set; }
+
+        public FinishedState()
+        {
+            this.Type = GameStateType.finished;
+        }
 
         public void init(GameStateManager gsm)
         {

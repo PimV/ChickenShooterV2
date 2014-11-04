@@ -14,6 +14,12 @@ namespace ChickenShooterV2
         public GameController GameController { get; set; }
         public MainContainer MainContainer { get; set; }
         public ActionContainer ActionContainer { get; set; }
+        public GameStateType Type { get; set; }
+
+        public Level2State()
+        {
+            this.Type = GameStateType.level2;
+        }
 
         public static Level2State Instance()
         {
@@ -65,7 +71,8 @@ namespace ChickenShooterV2
         {
             if (this.MainContainer[Behaviour.Shootable].Count < 1)
             {
-                this.GSM.changeGameState(GameStateFactory.createGameState(GameStateType.finished));
+                this.GSM.changeGameState(GameStateFactory.nextState(this));
+                //this.GSM.changeGameState(GameStateFactory.createGameState(GameStateType.finished));
                 return;
             }
             MainContainer.update(dt);

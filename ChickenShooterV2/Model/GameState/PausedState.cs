@@ -13,6 +13,13 @@ namespace ChickenShooterV2
         public MainContainer MainContainer { get; set; }
         public ActionContainer ActionContainer { get; set; }
 
+        public GameStateType Type { get; set; }
+
+        public PausedState()
+        {
+            this.Type = GameStateType.pause;
+        }
+
         public void init(GameStateManager gsm)
         {
             this.GSM = gsm;

@@ -20,5 +20,12 @@ namespace ChickenShooterV2
             return result;
         }
 
+        public static GameState nextState(GameState currentState)
+        {
+            var values = Enum.GetValues(typeof(GameStateType));
+            GameStateType newState = (GameStateType)Enum.GetValues(typeof(GameStateType)).GetValue((long)((int)currentState.Type + 1));
+            return createGameState(newState);
+        }
+
     }
 }
